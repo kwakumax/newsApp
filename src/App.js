@@ -4,6 +4,7 @@ import NewsComponent from './Redux/Posts/newsComponent';
 
 function App() {
   return (
+    
     <div>
       <NewsComponent />
     </div>

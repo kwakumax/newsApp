@@ -11,17 +11,17 @@ const Article = {
 
 export const fetchTopHeadlines = createAsyncThunk(
   "news/fetchTopHeadlines",
-  () => {
-    return axios
-      .get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`)
-      .then((response) => response.data.articles);
+  async () => {
+    const response = await axios
+      .get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`);
+    return response.data.articles;
   }
 );
 
-export const fetchEverything = createAsyncThunk("news/fetchEverything", () => {
-  return axios
-    .get(`https://newsapi.org/v2/everything?q=technology&apiKey=${apiKey}`)
-    .then((response) => response.data.articles);
+export const fetchEverything = createAsyncThunk("news/fetchEverything", async () => {
+  const response = await axios
+    .get(`https://newsapi.org/v2/everything?q=technology&apiKey=${apiKey}`);
+  return response.data.articles;
 });
 
 const initialState = {
@@ -69,9 +69,9 @@ const newsSlice = createSlice({
 });
 
 export const selectTopHeadlinesData = (state) =>
-  state.news.topHeadlines.data;
+  state.news.topHeadlines;
 export const selectEverythingData = (state) =>
-  state.news.everything.data;
+  state.news.everything;
 
 export default newsSlice.reducer;
 

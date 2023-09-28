@@ -18,22 +18,17 @@ function NewsComponent() {
     dispatch(fetchEverything());
   }, []);
 
-  useEffect(() => {
-    // Fetch data when the component dispatches an action
-    dispatch(fetchTopHeadlines());
-    dispatch(fetchEverything());
-  }, [dispatch]);
-
+ 
   return (
     <div>
       <h2>Top Headlines</h2>
-      {topHeadlinesData.status === "loading" && <p>Loading top headlines...</p>}
-      {topHeadlinesData.status === "failed" && (
+      {topHeadlinesData?.status === "loading" && <p>Loading top headlines...</p>}
+      {topHeadlinesData?.status === "failed" && (
         <p>Error loading top headlines.</p>
       )}
-      {topHeadlinesData.status === "succeeded" && (
+      {topHeadlinesData?.status === "succeeded" && (
         <ul>
-          {topHeadlinesData.data.map((article, index) => (
+          {topHeadlinesData?.data.map((article, index) => (
             <li key={index}>
               <h3>{article.title}</h3>
               <p>{article.description}</p>
