@@ -5,7 +5,7 @@ import {
   fetchEverything,
   selectTopHeadlinesData,
   selectEverythingData,
-} from "./newsSlice"; // Importing thunks and selectors
+} from '../Posts/newsSlice'; // Importing thunks and selectors
 
 function NewsComponent() {
   const dispatch = useDispatch();
