@@ -13,18 +13,18 @@ function NewsComponent() {
   const everythingData = useSelector(selectEverythingData);
 
   useEffect(() => {
-    // Fetch data when the component mounts
+    // Fetch data when the component mounts on the UI
     dispatch(fetchTopHeadlines());
     dispatch(fetchEverything());
   }, []);
 
  
   return (
-    <div>
+    <div className="container">
       <h2>Top Headlines</h2>
-      {topHeadlinesData?.status === "loading" && <p>Loading top headlines...</p>}
+      {topHeadlinesData?.status === "loading" && <p className="message">Loading top headlines...</p>}
       {topHeadlinesData?.status === "failed" && (
-        <p>Error loading top headlines.</p>
+        <p className="message">Error loading top headlines.</p>
       )}
       {topHeadlinesData?.status === "succeeded" && (
         <ul>
@@ -38,8 +38,8 @@ function NewsComponent() {
       )}
 
       <h2>Everything</h2>
-      {everythingData.status === "loading" && <p>Loading everything...</p>}
-      {everythingData.status === "failed" && <p>Error loading everything.</p>}
+      {everythingData.status === "loading" && <p className="message">Loading everything...</p>}
+      {everythingData.status === "failed" && <p className="message">Error loading everything.</p>}
       {everythingData.status === "succeeded" && (
         <ul>
           {everythingData.data.map((article, index) => (

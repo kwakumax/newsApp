@@ -3,11 +3,6 @@ import axios from "axios";
 
 const apiKey = "8b9fe0757d70451eb95b84b06ca317bd"; //  API key gotten from newsapi.org
 
-// An Article type based on the properties returned from the API
-const Article = {
-  title: "",
-  description: "",
-};
 
 export const fetchTopHeadlines = createAsyncThunk(
   "news/fetchTopHeadlines",
