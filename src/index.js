@@ -5,12 +5,21 @@ import App from './App';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 import { store } from './Redux/store';
+import { Auth0Provider } from '@auth0/auth0-react';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Auth0Provider
+        domain='dev-pqr614mkxxyjjop0'
+        clientId='1mfnvMxAUmBqNgrE83jjuO2yqKOSQ29O'
+        authorizationParams={{redirect_uri:'http://localhost:3000'}}
+      >
+        
+        <App />
+      </Auth0Provider>
     </Provider>
   </React.StrictMode>
 );
