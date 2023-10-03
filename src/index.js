@@ -1,26 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import { Provider } from 'react-redux';
-import reportWebVitals from './reportWebVitals';
-import { store } from './Redux/store';
-import { Auth0Provider } from '@auth0/auth0-react';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { Provider } from "react-redux";
+import reportWebVitals from "./reportWebVitals";
+import { store } from "./Redux/store";
+import { Auth0Provider } from "@auth0/auth0-react";
+import AuthLogin from "./components/AuthLogin";
+import AuthLogOut from "./components/AuthLogOut";
+import AuthProfile from "./components/AuthProfile";
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Auth0Provider
-        domain='dev-pqr614mkxxyjjop0'
-        clientId='1mfnvMxAUmBqNgrE83jjuO2yqKOSQ29O'
-        authorizationParams={{redirect_uri:'http://localhost:3000'}}
-      >
-        
+    <Auth0Provider
+      domain="dev-pqr614mkxxyjjop0.us.auth0.com"
+      clientId="0dHCYevSViO0ZI5DWUG36JL7zPl5L6Ke"
+      authorizationParams={{ redirect_uri: "http://localhost:3000" }}
+    >
+        {/* <AuthLogin />
+        <AuthLogOut />
+        <AuthProfile /> */}
+      <Provider store={store}>
         <App />
-      </Auth0Provider>
-    </Provider>
+      </Provider>
+    </Auth0Provider>
   </React.StrictMode>
 );
 
