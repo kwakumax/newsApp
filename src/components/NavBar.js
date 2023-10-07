@@ -6,6 +6,7 @@ import AuthProfile from "./AuthProfile";
 
 
 
+
 export const NavBar = () => {
   const { isAuthenticated } = useAuth0();
   return (

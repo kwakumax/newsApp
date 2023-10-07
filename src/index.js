@@ -6,9 +6,7 @@ import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./Redux/store";
 import { Auth0Provider } from "@auth0/auth0-react";
-import AuthLogin from "./components/AuthLogin";
-import AuthLogOut from "./components/AuthLogOut";
-import AuthProfile from "./components/AuthProfile";
+
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -19,9 +17,6 @@ root.render(
       clientId="0dHCYevSViO0ZI5DWUG36JL7zPl5L6Ke"
       authorizationParams={{ redirect_uri: "http://localhost:3000" }}
     >
-        {/* <AuthLogin />
-        <AuthLogOut />
-        <AuthProfile /> */}
       <Provider store={store}>
         <App />
       </Provider>

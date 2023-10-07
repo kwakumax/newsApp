@@ -30,7 +30,8 @@ function NewsComponent() {
         <ul>
           {topHeadlinesData?.data.map((article, index) => (
             <li key={index}>
-              <h3>{article.title}</h3>
+              <a className="article-links" target="blank" href={article.url}><h3>{article.title}</h3></a>
+              
               <p>{article.description}</p>
             </li>
           ))}
@@ -44,7 +45,9 @@ function NewsComponent() {
         <ul>
           {everythingData.data.map((article, index) => (
             <li key={index}>
-              <h3>{article.title}</h3>
+              <h3><a className="article-links" target="blank" href={article.url}>
+                {article.title}
+                </a></h3>
               <p>{article.description}</p>
             </li>
           ))}
