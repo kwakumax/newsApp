@@ -11,7 +11,7 @@ export const NavBar = () => {
   const { isAuthenticated } = useAuth0();
   return (
     <div className="navBar">
-      <h1>News App</h1>
+      <h1 className="newsapp-title">TheNews App</h1>
       {isAuthenticated? <AuthProfile /> : <AuthLogin />}
       {isAuthenticated && <AuthLogOut />}
       

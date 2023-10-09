@@ -5,7 +5,8 @@ export const FilterComponent = () => {
   const [filteredCountry, setFilteredCountry] = useState(" ");
   const [filteredArticles, setFilteredArticles] = useState([]);
   const [showResults, setShowResults] = useState(false);
-  const apiKey = "8b9fe0757d70451eb95b84b06ca317bd";
+
+  const apiKey = "2acb91a1189e4c378680b0ad0e99d5f1";
 
   const handleCountryChange=(e)=>{
     setFilteredCountry(e.target.value)
@@ -40,8 +41,8 @@ export const FilterComponent = () => {
 
       {showResults && <h2>Filtered Articles for Country: {filteredCountry}</h2>}
 
-      <select value={filteredCountry} onChange={handleCountryChange}>
-        <option>--choose a country--</option>
+      <select value={filteredCountry} onChange={handleCountryChange} className='filter-option'>
+        <option value=''>--choose a country--</option>
         <option value="us">United States</option>
         <option value="gb">United Kingdom</option>
         <option value="ca">Canada</option>
@@ -51,7 +52,14 @@ export const FilterComponent = () => {
       <ul>
         {filteredArticles.map((article, index) => (
           <li key={index}>
-            <h3>{article.title}</h3>
+
+                  <a
+                    className="article-links"
+                    target="blank"
+                    href={article.url}
+                  >
+                   <h3>{article.title}</h3>
+                  </a>
             <p>{article.description}</p>
           </li>
         ))}

@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const apiKey = "8b9fe0757d70451eb95b84b06ca317bd"; //  API key gotten from newsapi.org
+const apiKey = "2acb91a1189e4c378680b0ad0e99d5f1"; //  API key gotten from newsapi.org
 
 
 export const fetchTopHeadlines = createAsyncThunk(
@@ -23,19 +23,22 @@ const initialState = {
   topHeadlines: {
     data: [],
     status: "idle",
-    error: null,
+    error: null
   },
   everything: {
     data: [],
     status: "idle",
-    error: null,
+    error: null
   },
 };
 
 const newsSlice = createSlice({
   name: "news",
   initialState,
-  reducers: {},
+  userInput: '', // Store user input
+  searchData: null,
+  reducers: { },
+  
   extraReducers: (builder) => {
     builder
       .addCase(fetchTopHeadlines.pending, (state) => {
@@ -67,6 +70,7 @@ export const selectTopHeadlinesData = (state) =>
   state.news.topHeadlines;
 export const selectEverythingData = (state) =>
   state.news.everything;
+
 
 export default newsSlice.reducer;
 
