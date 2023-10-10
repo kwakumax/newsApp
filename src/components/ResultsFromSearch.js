@@ -1,14 +1,9 @@
-import React,{  useState } from 'react'
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-
 export const ResultsFromSearch = () => {
-
-  const searchedArticle = useSelector(state => state.search.searchResults)
-
-  const [showResults, setShowResults] = useState(false);
+  const searchedArticle = useSelector((state) => state.search.searchResults);
   const [currentPage, setCurrentPage] = useState(1);
-
   const articlesPerPage = 10;
 
   // Calculating the index range for the current page
@@ -24,14 +19,10 @@ export const ResultsFromSearch = () => {
     setCurrentPage(newPage);
   };
 
-  if (searchedArticle.length > 0) {
-    setShowResults(true);
-  }
-
   return (
     <div>
-       {/* Display search results */}
-       {showResults && (
+      {/* Display search results if there are articles */}
+      {searchedArticle.length > 0 && (
         <div className="search-results">
           <h2>Search Results</h2>
           <ul>
@@ -56,7 +47,6 @@ export const ResultsFromSearch = () => {
           </div>
         </div>
       )}
-
     </div>
-  )
-}
+  );
+};
