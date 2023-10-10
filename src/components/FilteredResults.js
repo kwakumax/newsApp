@@ -1,30 +1,12 @@
-import React ,{ useState , useEffect }from 'react'
-import axios from 'axios';
+import React from 'react'
+import {  useSelector } from "react-redux"
 
-export const FilteredResults = ({selectedCountry}) => {
-
-  const [filteredArticles, setFilteredArticles] = useState([]);
-  
-  const apiKey = "2acb91a1189e4c378680b0ad0e99d5f1";
-
-    useEffect(() => {
-      const filterUrl = `https://newsapi.org/v2/top-headlines?country=${selectedCountry}&apiKey=${apiKey}`;
-
-      axios.get(filterUrl)
-        .then((res) => {
-          const articles = res.data.articles;
-          setFilteredArticles(articles);
-        })
-        .catch((error) => {
-          console.error("Error fetching articles:", error);
-        });
-   
-
-     }, [selectedCountry]);
+export const FilteredResults = () => {
+  const selectedCountry = useSelector((state) => state.filter.filteredArticles);
 
   return (
     <ul>
-        {filteredArticles.map((article, index) => (
+        {selectedCountry.map((article, index) => (
           <li key={index}>
 
                   <a

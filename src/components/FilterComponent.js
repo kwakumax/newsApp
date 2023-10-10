@@ -1,33 +1,33 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchFilteredCountry } from './FilterSlice';
 
 
-export const FilterComponent = ({startFiltering}) => {
-  const [filteredCountry, setFilteredCountry] = useState(" ");
-  const [showResults, setShowResults] = useState(false);
-  
 
-  const handleCountryChange=(e)=>{
-    setFilteredCountry(e.target.value)
-    if(filteredCountry){
-      setShowResults(true)
-      startFiltering(true)
-    }
-  }
+const FilterComponent = ({startFiltering}) => {
+  const dispatch = useDispatch();
+  const [selectedCountry, setSelectedCountry] = useState('');
+
+  const handleCountryChange = (e) => {
+    const country = e.target.value;
+    setSelectedCountry(country);
+    startFiltering(true)
+    dispatch(fetchFilteredCountry(country))
+  };
 
   return (
-    <div className='filtered-country'>
-
-      {showResults && <h2>Filtered Articles for Country: {filteredCountry}</h2>}
-
-      <select value={filteredCountry} selectedCountry={filteredCountry} onChange={handleCountryChange} className='filter-option'>
-        <option value=''>--choose a country--</option>
+    <div className="filtered-country">
+      
+      <select value={selectedCountry} countryCode={selectedCountry} onChange={handleCountryChange} className="filter-option">
+        <option value="">-- Choose a country --</option>
         <option value="us">United States</option>
         <option value="gb">United Kingdom</option>
         <option value="ca">Canada</option>
-        {/* Adding more countries as needed */}
+        {/* Add more countries as needed */}
       </select>
-      
-      
     </div>
   );
 };
+
+export default FilterComponent;
+
