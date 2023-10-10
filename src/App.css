@@ -309,7 +309,7 @@ p {
 
 /* Hover effect for the button */
 .search-button:hover {
-  background-color: #599feb; /* Darker blue color on hover */
+  background-color: #4d3dda; /* Darker blue color on hover */
 }
 
 /* pagination.css */
@@ -319,6 +319,7 @@ p {
   display: flex;
   list-style: none;
   padding: 0;
+  margin-bottom: 5px;
 }
 
 /* Style for individual page number */
@@ -330,4 +331,44 @@ p {
 /* Style for the current/active page number */
 .pagination li.active {
   font-weight: bold;
+}
+
+/* search-results */
+/* .search-results{
+  margin-left: 25px;
+  width: 900px;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+} */
+
+.search-results {
+  margin-left: 95px;
+  margin-top: 15px;
+  width: 1520px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-results > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.search-results > ul > li {
+  width: calc(100% - 800px); /* Adjust the width as needed */
+  margin: 5px; /* Adjust the margin as needed */
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  box-shadow: #333;
+}
+
+.search-results>h2{
+  margin-left: 30px;
 }

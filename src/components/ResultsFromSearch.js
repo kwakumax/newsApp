@@ -1,7 +1,7 @@
-import React,{useEffect,useState} from 'react'
+import React,{ useEffect, useState } from 'react'
 import axios from 'axios';
 
-export const searchResults = ({value}) => {
+export const ResultsFromSearch = ({value}) => {
 
   const [searchResults, setSearchResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
@@ -34,16 +34,7 @@ export const searchResults = ({value}) => {
         });
     }
 
-    // Call handleSearch when searchItem changes
-    // if (searchItem) {
-    //   handleSearch();
-    // }
-
-    // Cleanup function
-    // return () => {
-    //   setSearchResults([]);
-    // };
-  , [searchItem]);
+    , [value]);
 
    
 
