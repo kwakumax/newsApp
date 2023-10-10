@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { searchArticles } from "../Redux/searchSlice";
 
 
 const SearchBar = ({startSearching}) => {
+  
+  const dispatch=useDispatch()
+
   const [searchItem, setSearchItem] = useState("");
   
 
@@ -9,7 +14,10 @@ const SearchBar = ({startSearching}) => {
     setSearchItem(e.target.value);
   };
 
-    
+    const handleStartSearching =()=>{
+      startSearching(true)
+      dispatch(searchArticles(searchItem))
+    }
 
   return (
     <div className="search-container">
@@ -19,8 +27,9 @@ const SearchBar = ({startSearching}) => {
         value={searchItem}
         onChange={handleChange}
         className="search-input"
+        query={searchItem}
       />
-      <button className="search-button" onClick={()=>startSearching(true)}>Search</button>
+      <button className="search-button" onClick={handleStartSearching}>Search</button>
 
       {/*  */}
     </div>

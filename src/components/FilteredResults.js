@@ -4,6 +4,7 @@ import {  useSelector } from "react-redux"
 export const FilteredResults = () => {
   const selectedCountry = useSelector((state) => state.filter.filteredArticles);
 
+  
   return (
     <ul>
         {selectedCountry.map((article, index) => (

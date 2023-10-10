@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 // Create an async action using createAsyncThunk
-export const fetchFilteredCountry = createAsyncThunk('filter/fetchFilteredCountry', async ({countryCode}) => {
+export const fetchFilteredCountry = createAsyncThunk('filter/fetchFilteredCountry', async (countryCode) => {
   try {
     const apiKey = '2acb91a1189e4c378680b0ad0e99d5f1';
     const filterUrl = `https://newsapi.org/v2/top-headlines?country=${countryCode}&apiKey=${apiKey}`;
@@ -41,7 +41,7 @@ const filterSlice = createSlice({
   },
 });
 
-// Export the async action and reducer
+
 
 
 export default filterSlice.reducer;
