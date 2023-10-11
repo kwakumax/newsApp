@@ -5,7 +5,7 @@ import {
   fetchEverything,
   selectTopHeadlinesData,
   selectEverythingData,
-} from '../Posts/newsSlice'; // Importing thunks and selectors
+} from '../Redux/newsSlice'; // Importing thunks and selectors
 import Pagination from "./Pagination";
 
 const NewsComponent=()=> {

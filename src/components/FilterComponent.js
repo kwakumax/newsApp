@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchFilteredCountry } from './FilterSlice';
+import { fetchFilteredCountry} from '../Redux/FilterSlice'
 
 
 

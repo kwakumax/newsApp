@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import newsReducer from '../Posts/newsSlice';
-import filterReducer from "../components/FilterSlice";
+import newsReducer from './newsSlice';
+import filterReducer from "./FilterSlice";
 import searchReducer from "./searchSlice";
 
 
